@@ -17,7 +17,9 @@ public class ShootThemUp : ModuleRules
 			"Engine",
 			"InputCore",
 			"Niagara",
-			"PhysicsCore"
+			"PhysicsCore",
+			"GameplayTasks",
+			"NavigationSystem"
 		});
 
 		PublicIncludePaths.AddRange(new string[]
@@ -29,7 +31,12 @@ public class ShootThemUp : ModuleRules
 			"ShootThemUp/Public/UI",
 			"ShootThemUp/Public/Animations",
 			"ShootThemUp/Public/Pickups",
-			"ShootThemUp/Public/Weapon/Components"
+			"ShootThemUp/Public/Weapon/Components",
+			"ShootThemUp/Public/AI",
+			"ShootThemUp/Public/AI/Tasks",
+			"ShootThemUp/Public/AI/Services",
+			"ShootThemUp/Public/AI/EQS",
+			"ShootThemUp/Public/AI/Decorators"
 			
 		});
 		

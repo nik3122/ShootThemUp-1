@@ -56,6 +56,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly,Category="Damage")
 	FVector2D LandedDamage = FVector2D(10.0f, 100.0f);
 
+	virtual void OnDeath();
 	
 public:	
 	// Called every frame
@@ -79,8 +80,7 @@ private:
 	
 	void OnStartRunning();
 	void OnStopRunning();
-
-	void OnDeath();
+	
 	void OnHealthChanged(float Health, float HealthDelta);
 
 	UFUNCTION()

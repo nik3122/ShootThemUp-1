@@ -7,5 +7,6 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "C:\Users\vvovk\Documents\Unreal Projects\ShootThemUp\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp.obj"
+"C:\Users\vvovk\Documents\Unreal Projects\ShootThemUp\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\RiderLogging.cpp.obj"
 "C:\Users\vvovk\Documents\Unreal Projects\ShootThemUp\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Default.rc2.res"
 /OUT:"C:\Users\vvovk\Documents\Unreal Projects\ShootThemUp\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\UnrealEditor-RiderLogging.lib"
