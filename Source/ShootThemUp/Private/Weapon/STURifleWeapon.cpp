@@ -8,7 +8,6 @@
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 
-DEFINE_LOG_CATEGORY_STATIC(LogBaseWeapon, All, All);
 
 ASTURifleWeapon::ASTURifleWeapon()
 { 
@@ -46,17 +45,6 @@ void ASTURifleWeapon::MakeShot()
 	FHitResult HitResult;
 	MakeHit(HitResult,TraceStart,TraceEnd);
 	
-	/*const FVector ActualTraceEnd = HitResult.bBlockingHit ? HitResult.ImpactPoint : HitResult.TraceEnd;
-	const FVector HitDirectionFromMuzzle = (ActualTraceEnd - GetMuzzleWorldLocation()).GetSafeNormal();
-	const auto AngleBetween = FMath::Acos(FVector::DotProduct(ActualTraceEnd,HitDirectionFromMuzzle));
-	const auto Degrees = FMath::RadiansToDegrees(AngleBetween);
-	UE_LOG(LogBaseWeapon, Display, TEXT("Shooting angle: %.0f"), Degrees);
-	if(Degrees > 90.0f)
-	{
-		UE_LOG(LogBaseWeapon, Error, TEXT("Attempted to shoot backwards!"));
-		return;
-	}*/
-
 	FVector TraceFXEnd = TraceEnd;
 	if(HitResult.bBlockingHit)
 	{
@@ -64,7 +52,6 @@ void ASTURifleWeapon::MakeShot()
 		MakeDamage(HitResult);
 		WeaponFXComponent->PlayImpactFX(HitResult);
 		
-		UE_LOG(LogBaseWeapon,Display,TEXT("Bone: %s"),*HitResult.BoneName.ToString());
 	}
 	SpawnTraceFX(GetMuzzleWorldLocation(),TraceFXEnd);
 	
@@ -89,7 +76,7 @@ void ASTURifleWeapon::MakeDamage(const FHitResult& HitResult)
 	const auto DamagedActor = HitResult.GetActor();
 	if(!DamagedActor) return;
 
-	DamagedActor->TakeDamage(HitDamage ,FDamageEvent{},GetPlayerController(), this);
+	DamagedActor->TakeDamage(HitDamage ,FDamageEvent{},GetController() , this);
 }
 
 void ASTURifleWeapon::InitMuzzleFX()
@@ -117,4 +104,10 @@ void ASTURifleWeapon::SpawnTraceFX(const FVector& TraceStart, const FVector& Tra
 	{
 		TraceFXComponent->SetNiagaraVariableVec3(TraceTargetName, TraceEnd);
 	}
+}
+
+AController* ASTURifleWeapon::GetController() const
+{
+	const auto Pawn = Cast<APawn>(GetOwner());
+	return Pawn ? Pawn->GetController() : nullptr;
 }

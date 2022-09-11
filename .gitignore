@@ -78,3 +78,5 @@ ArchivedBuilds/*
 Paks/*
 *.pdb
 Stage/Windows/ShootThemUp/Content/Paks/ShootThemUp-Windows.ucas
+BuildFromBat/Windows/ShootThemUp/Content/Paks/ShootThemUp-Windows.ucas
+Content/Megascans/Surfaces/Scratched_Metal_vdekebbc/T_ScratchedMetal_vdekebbc_8K_MR.uasset
